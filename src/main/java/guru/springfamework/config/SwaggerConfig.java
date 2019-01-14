@@ -23,6 +23,23 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build()
-                .pathMapping("/");
+                .pathMapping("/")
+                .apiInfo(metaData());
+    }
+
+    private ApiInfo metaData() {
+
+        Contact contact = new Contact("John Thompson", "https://springframework.guru/about/",
+                "john@springfrmework.guru");
+
+        return new ApiInfo(
+                "Spring Framework Guru",
+                "Spring Framework 5: Beginner to Guru",
+                "1.0",
+                "Terms of Service: blah",
+                contact,
+                "Apache License Version 2.0",
+                "https://www.apache.org/licenses/LICENSE-2.0",
+                new ArrayList<>());
     }
 }
